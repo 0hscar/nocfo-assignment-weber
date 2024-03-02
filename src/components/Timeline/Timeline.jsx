@@ -17,8 +17,8 @@ const EventList = ({event}) => {
   return <div className="eventContainer">
     <h1>Test</h1>
     
-    <li>Date: {event.date}</li>
-    <li>Type: {event.type}</li>
+    <p>Date: {event.date}</p>
+    <p>Type: {event.type}</p>
     <p>Priority: {event.priority}</p>
     <p>Description: {event.description}</p>
 
@@ -29,6 +29,10 @@ const EventList = ({event}) => {
 export const Timeline = ({ items }) => {
   // TODO: Replace me
   // console.log(Object.keys(getEvents()))
+  
+  
+  
+  
   console.log(items)
   return (
     <StyledPlaceholder>your component here
