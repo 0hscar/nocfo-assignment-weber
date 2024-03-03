@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import '../../style.css'
 
-
-const EventList = ({ event }) => {
+// Container for singular Events.
+const EventContainer = ({ event }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const toggleExpanded = () => setIsExpanded(!isExpanded)
 
@@ -10,7 +10,7 @@ const EventList = ({ event }) => {
     <div className='itemContainer'>
       {/* Visible */}
       <h1 className='itemHeader'>{event.date}</h1>
-      <p className='itemP'>Priority: {event.priority}</p>
+      <p className='itemP'>Priority: <br></br> {event.priority}</p>
 
       {/* Toggleable, room for more if required */}
       {isExpanded && (
@@ -19,9 +19,12 @@ const EventList = ({ event }) => {
           <p className='itemP'>Description: {event.description}</p>
         </div>
       )}
+
+      {/* Toggle button */}
       <button className='showMoreButton' onClick={toggleExpanded}>
         {isExpanded ? 'Show Less' : 'Show More'}
       </button>
+    
     </div>
   )
 }
@@ -44,6 +47,7 @@ export const Timeline = ({ items }) => {
     }
 
     const sortedItems = [...items]
+
     // If statements for the different sorting options
     if (criteria === 'date-first') {
       sortedItems.sort((a, b) => new Date(a.date) - new Date(b.date))
@@ -75,7 +79,10 @@ export const Timeline = ({ items }) => {
   }
 
   return (
+    // Timeline itself
     <div className='timeline'>
+      
+      {/* Option selector for sorting */}
       <select className='sortSelector' value={sortCriteria} onChange={handleSortChange}>
         <option value='date-first'>Date, First - Last</option>
         <option value='date-last'>Date, Last - First</option>
@@ -84,18 +91,21 @@ export const Timeline = ({ items }) => {
         <option value='priority-highFirst'>Priority, High - Low</option>
 
       </select>
+
+      {/* A parent container to house the scroll buttons on either side of the events */}
       <div className='parentContainer'>
 
-        <button className='scrollButton' onMouseDown={scrollLeft} id='scrollLeft'>
-          <i className='arrow left'></i>
+        <button className='scrollButton' onClick={scrollLeft} id='scrollLeft'>
+          <i className='arrow left'></i> {/* Arrow inside the button */}
         </button>
 
+        {/* Div container, scrollable, houses event containers  */}
         <div ref={scrollContainerRef} className='eventsContainer'>
-          {eventItems.map((value) => <EventList event={value} ></EventList>)} {/* .map() to loop through the events themselves, instead of having to use [1], [2] etc. */}
+          {eventItems.map((value) => <EventContainer event={value} ></EventContainer>)} {/* .map() to loop through the events themselves */}
         </div>
 
         <button className='scrollButton' onClick={scrollRight} id='scrollRight'>
-          <i className='arrow right'></i>
+          <i className='arrow right'></i> {/* Arrow inside the button */}
         </button>
 
       </div>

@@ -59,10 +59,10 @@
 }
 
 .sortSelector {
-    background-color: #1b98f5;
+    background-color: lightblue;
 }
 
-.showMoreButton{
+.showMoreButton {
     background-color: lightblue;
     border: none;
     margin-top: auto;
@@ -81,16 +81,15 @@
     max-height: 300px;
 }
 
-/* TODO */
 /* For Ipads etc, affects phones aswell */
 @media (max-width:1200px) {
 
     /* Hide the buttons, not usefull when you can drag with your finger */
-    .scrollButton{
+    .scrollButton {
         display: none;
     }
-    
-    .timeline{
+
+    .timeline {
         padding: 5px 0 5px 0
     }
 
@@ -103,22 +102,15 @@
     }
 
     .itemContainer {
-        min-width: 200px;        
+        min-width: 200px;
     }
 
-    body {
-        background-color: black;
-    }
 }
 
 /* For phones */
 @media (max-width: 500px) {
-   
-    /* /* .eventsContainer{
-        width: 100%
-    } */
-    .itemContainer{
-        min-width: 100px; 
+    .itemContainer {
+        min-width: 100px;
 
     }
 }

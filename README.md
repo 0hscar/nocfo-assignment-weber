@@ -1,3 +1,10 @@
+# NOCFO Assignment, Weber
+
+The component is a quite straight forward Timeline with responsitivity. You are able to sort according to date and priority, ascending and descending. To not clutter your whole screen it comes with a "Show more" button so only the date and priority is visible at this time. Depending on requirments and the content this could easibly be changed according to what would be preferred. Current color choices and such is according to the Template box. The date is in the American YYYY-MM-DD but if everything would be in Finnish it would of course be changed. When it is in desktop size there are buttons on the sides for scrolling (for those unaware of shift+scroll), for Ipads and phones there are no use for them.
+
+Task is done with React and JavaScript. Style is done with a sepereate .css file. 
+
+
 > [!IMPORTANT]
 > If you have technical challenges with completing the task, you can contact Juho via email at juho.enala@nocfo.io. However, note that the task should be returned to Kiira, her email and instructions for returning the assignment are at the end of these instructions.
 
