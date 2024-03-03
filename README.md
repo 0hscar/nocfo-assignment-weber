@@ -1,8 +1,8 @@
 # NOCFO Assignment, Weber
 
-The component is a quite straight forward Timeline with responsitivity. You are able to sort according to date and priority, ascending and descending. To not clutter your whole screen it comes with a "Show more" button so only the date and priority is visible at this time. Depending on requirments and the content this could easibly be changed according to what would be preferred. Current color choices and such is according to the Template box. The date is in the American YYYY-MM-DD but if everything would be in Finnish it would of course be changed. When it is in desktop size there are buttons on the sides for scrolling (for those unaware of shift+scroll), for Ipads and phones there are no use for them.
+The component is a quite straight forward Timeline with responsitivity. You are able to sort according to date and priority, ascending and descending. To not clutter your whole screen it comes with a "Show more" button so only the date and priority is visible at this time. Depending on requirments and the content this could easily be changed according to what would be preferred. Current color choices and such is according to the Template box. The date is in the American YYYY-MM-DD but if everything would be in Finnish it would of course be changed. When it is in desktop size there are buttons on the sides for scrolling (for those unaware of shift+scroll), for Ipads and phones there are no use for them.
 
-Task is done with React and JavaScript. Style is done with a sepereate .css file. 
+Task is done with React and JavaScript. Style is done with a separate .css file. 
 
 
 > [!IMPORTANT]
