@@ -1,15 +1,12 @@
 import React, { useRef, useState } from 'react'
-import styled from 'styled-components'
 import "../../style.css"
 
 
 const EventList = ({ event }) => {
   return <div className="itemContainer">
-    <h1>Test</h1>
-
-    <p>Date: {event.date}</p>
-    <p>Label: {event.label}</p>
+    <h1>{event.date}</h1>
     <p>Priority: {event.priority}</p>
+    <p>Label: {event.label}</p>
     <p>Description: {event.description}</p>
 
   </div>
@@ -17,10 +14,8 @@ const EventList = ({ event }) => {
 }
 
 export const Timeline = ({ items }) => {
-  // TODO: Replace me
-  // items.sort((a, b) => new Date(b.date) - new Date(a.date))
   const [eventItems, setEventItems] = useState(items)
-  const [sortCriteria, setSortCriteria] = useState('date')
+  const [sortCriteria, setSortCriteria] = useState('date-first')
   
   const scrollContainerRef = useRef(null)
 
