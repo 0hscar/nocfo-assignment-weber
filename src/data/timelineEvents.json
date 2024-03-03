@@ -1,7 +1,7 @@
 [
   {
     "date": "2023-12-31",
-    "type": "ACCOUNTING_PERIOD_END",
+    "label": "ACCOUNTING_PERIOD_END",
     "priority": "LOW",
     "description": "Accounting 2023 period end"
   },
