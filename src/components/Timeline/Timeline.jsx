@@ -1,29 +1,42 @@
 import React, { useRef, useState } from 'react'
-import "../../style.css"
+import '../../style.css'
 
 
 const EventList = ({ event }) => {
-  return <div className="itemContainer">
-    <h1>{event.date}</h1>
-    <p>Priority: {event.priority}</p>
-    <p>Label: {event.label}</p>
-    <p>Description: {event.description}</p>
+  const [isExpanded, setIsExpanded] = useState(false)
+  const toggleExpanded = () => setIsExpanded(!isExpanded)
 
-  </div>
+  return (
+    <div className='itemContainer'>
+      {/* Visible */}
+      <h1 className='itemHeader'>{event.date}</h1>
+      <p className='itemP'>Priority: {event.priority}</p>
 
+      {/* Toggleable, room for more if required */}
+      {isExpanded && (
+        <div className='toggleAbleDiv'>
+          <p className='itemP'>Label: {event.label}</p>
+          <p className='itemP'>Description: {event.description}</p>
+        </div>
+      )}
+      <button className='showMoreButton' onClick={toggleExpanded}>
+        {isExpanded ? 'Show Less' : 'Show More'}
+      </button>
+    </div>
+  )
 }
 
 export const Timeline = ({ items }) => {
   const [eventItems, setEventItems] = useState(items)
   const [sortCriteria, setSortCriteria] = useState('date-first')
-  
+
   const scrollContainerRef = useRef(null)
 
   // Option handler
   const handleSortChange = (event) => {
     const criteria = event.target.value
     setSortCriteria(criteria)
-    
+
     const priorityMap = {
       'LOW': 1,
       'MODERATE': 2,
@@ -32,10 +45,10 @@ export const Timeline = ({ items }) => {
 
     const sortedItems = [...items]
     // If statements for the different sorting options
-    if(criteria === 'date-first'){
+    if (criteria === 'date-first') {
       sortedItems.sort((a, b) => new Date(a.date) - new Date(b.date))
     }
-    else if (criteria === 'date-last'){
+    else if (criteria === 'date-last') {
       sortedItems.sort((a, b) => new Date(b.date) - new Date(a.date))
     }
 
@@ -69,11 +82,11 @@ export const Timeline = ({ items }) => {
 
         <option value='priority-lowFirst'>Priority, Low - High</option>
         <option value='priority-highFirst'>Priority, High - Low</option>
-      
+
       </select>
       <div className='parentContainer'>
 
-        <button onMouseDown={scrollLeft} id='scrollLeft'>
+        <button className='scrollButton' onMouseDown={scrollLeft} id='scrollLeft'>
           <i className='arrow left'></i>
         </button>
 
@@ -81,7 +94,7 @@ export const Timeline = ({ items }) => {
           {eventItems.map((value) => <EventList event={value} ></EventList>)} {/* .map() to loop through the events themselves, instead of having to use [1], [2] etc. */}
         </div>
 
-        <button onClick={scrollRight} id='scrollRight'>
+        <button className='scrollButton' onClick={scrollRight} id='scrollRight'>
           <i className='arrow right'></i>
         </button>
 
